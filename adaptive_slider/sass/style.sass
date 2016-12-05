@@ -1,0 +1,449 @@
+//COLORS
+$burnt-sienna: #e8603c
+$silver: #b9b9b9
+$white: #fff
+$sundown: #F5BDAE
+$gainsboro: #DFDFDF
+$blue: blue
+$eclipse: #383838
+
+$black: #000000
+$persian-green: #00A99D
+
+
+
+//VARIABLES
+$primary-color: lighten($black,38%)
+$link-color: $primary-color
+$link-hover-color: $persian-green
+$nav-bg-color: transparent
+$nav-height: 80px
+$nav-link-color: $primary-color
+$nav-link-size: 10px
+$nav-link-hover-color: lighten($black,89%)
+$nav-link-hover-bg: $persian-green
+$carousel-indicators-active-border: 2px solid $primary-color
+$carousel-caption-bg: $persian-green
+$carousel-caption-heading-size: 14px
+$carousel-caption-text-size: 12px
+$button-bg: $persian-green
+$button-color: lighten($black,89%)
+$button-font-size: 14px
+$footer-bg: $primary-color
+$footer-content-color: lighten($black,89%) 
+$footer-content-bg: $persian-green
+$footer-content-heading-size: 14px
+$footer-content-text-size: 12px
+$footer-content-link-color: $primary-color
+$footer-content-link-hover-color: $primary-color
+$body-font-size: 12px
+$section-heading-color: $primary-color
+$section-heading-size: 14px
+$section-text-size: 12px
+$section-text-color: lighten($black,48%)
+$article-heading-size: 14px
+$article-heading-color: $persian-green
+
+
+
+//MIXINS 
+
+@mixin webfont($font)
+	font-family: '#{$font}'
+	src: url('../fonts/#{$font}.eot'), url('../fonts/#{$font}.eot?#iefix') format('embedded-opentype'), url('../fonts/#{$font}.woff') format('woff'), url('../fonts/#{$font}.woff2') format('woff2'), url('../fonts/#{$font}.ttf') format('truetype'), url('../fonts/#{$font}.svg##{$font}') format('svg')
+//FONTS 
+@font-face
+	+webfont('raleway-extrabold-webfont')
+@font-face
+	+webfont('raleway-medium-webfont')
+
+
+//COMMON STYLES
+body
+	font-family: 'raleway-extrabold-webfont', Arial, sans-serif 
+
+p
+	font-family: 'raleway-medium-webfont', Arial, sans-serif
+	font-size: $body-font-size
+
+a
+	color: $link-color
+	&:hover,
+	&:focus
+		text-decoration: none
+		color: $link-hover-color
+*
+	outline: none!important
+
+// NAVBAR MAIN
+nav.navbar
+	border: 0
+	background: $nav-bg-color
+	margin: 0
+	height: $nav-height
+
+	@media(max-width: 750px)
+		height: auto
+		//LOGO
+	h1
+		float: left
+		margin: 0
+	a.navbar-brand
+		color: $persian-green
+		font-size: 35px
+		margin-top: 17px
+		font-family: 'raleway-extrabold-webfont'
+		font-weight: 600
+		//letter-spacing: 2px
+		span
+			color: $primary-color
+		&:hover
+			color: $primary-color
+	ul.navbar-nav
+		li 
+			a 
+				line-height: 45px
+				font-weight: 600
+				letter-spacing: 1px
+				font-size: $nav-link-size
+				color: $nav-link-color
+				padding-left: 9px
+				@media (min-width: 550px) and (max-width: 750px)
+					padding-left: 0
+				@media (max-width: 550px)
+					line-height: 15px
+					padding-left: 30px
+				&:last-child
+					padding-right: 9px
+			&.active a,& a:hover
+				color: $nav-link-hover-color !important
+				background: $nav-link-hover-bg 
+			&:last-child
+				a 
+					padding-right: 0
+//SLIDER
+section
+	&#slider
+		position: relative
+		@media (max-width: 550px)
+			padding: 0
+		#background-strip
+			background: $primary-color
+			height: 60px
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			z-index: 5
+		.container
+			background: $white
+			position: relative
+			z-index: 10
+		.carousel-indicators
+			display: flex
+			flex-direction: row
+			justify-content: space-between
+			width: 100%
+			margin: 0
+			position: static
+			margin-top: 17px
+			height: auto!important
+			@media (max-width: 1020px)
+				height: 87px
+				margin-top: 10px
+			li 
+				border: 0
+				width: 15%
+				margin: 0
+				height: auto
+				img
+					display: block
+					width: 100%
+				&.active
+					border: $carousel-indicators-active-border
+					border-radius: 0
+		.carousel-caption
+			background: rgba($carousel-caption-bg, 0.8)
+			margin-left: 95px
+			left: 0
+			width: 413px
+			padding: 12px 19px
+			text-align: left
+			@media (max-width: 1020px)
+				bottom: 0
+				width: 100%
+				margin-left: 0
+			@media (max-width: 750px)
+				display: none
+			h2
+				font-size: $carousel-caption-heading-size
+				margin: 8px 0 13px 0
+			p 
+				font-size: $carousel-caption-text-size
+				line-height: 14px
+				@media (max-width: 1020px)
+					margin: 0
+					right: 63px
+		.carousel-control
+			display: block
+			top: 170px
+			width: 90px
+			background: transparent
+			@media (min-width: 750px) and (max-width: 1020px)
+				width: 60px
+				top: 90px
+			@media (max-width: 750px)
+				top: 30%
+				width: 40px
+			img
+				@media (min-width: 750px) and (max-width: 1020px)
+					width: 30px	
+				@media (min-width: 550px) and (max-width: 750px)
+					width: 20px
+				@media (max-width: 550px)
+					width: 20px
+//ARTICLES
+#intro-articles
+	margin-bottom: 44px
+	& section
+		&:ntn-child(2),&:ntn-child(3)
+			@media (max-width: 750px)
+				margin-top: 40px
+
+		&:nth-child(1) h1
+			background: url('../img/article1.png') 0 0 no-repeat
+		&:nth-child(2) h1
+			background: url('../img/article2.png') 0 0 no-repeat
+		&:nth-child(3) h1
+			background: url('../img/article3.png') 0 0 no-repeat	
+	h1 
+		color: $section-heading-color
+		text-transform: uppercase
+		padding-left: 65px
+		font-size: $section-heading-size
+		font-weight: 600
+		padding-top: 18px
+		margin-top: 37px
+		padding-bottom: 33px
+		@media (min-width: 750px) and (max-width: 1020px)
+			margin-bottom: 10px
+			margin-top: 20px
+		@media (max-width: 750px)
+			margin-bottom: 0
+			margin-top: 20px
+			line-height: 50px
+		@media (max-width: 550px)
+			margin-top: 30px
+		@media (max-width: 500px)
+			line-height: 30px
+			padding-top: 15px
+			padding-bottom: 5px
+	p
+		min-height: 120px
+		line-height: 18px
+		font-size: $section-text-size
+		color: $section-text-color
+		margin-bottom: 18px
+		@media (max-width: 750px)
+			min-height: initial
+			margin-top: 18px
+			margin-left: 10px
+	button
+		background: $button-bg
+		color: $button-color
+		border: 0
+		text-transform: uppercase
+		padding: 5px 14px 2px 14px
+		line-height: 25px
+		font-size: $button-font-size
+		font-weight: 100
+		border-radius: 15px
+		@media (max-width: 750px)
+			display: block
+			margin: auto
+
+	&:ntn-child(1) h1
+		background: url('../img/article1.png') 0 0 no-repeat
+
+//EXTERNAL LINKS
+aside
+	&#external-links
+		text-transform: uppercase
+		margin-bottom: 28px
+		#header-with-background
+			background: $primary-color
+			margin: 0 10px 19px 10px
+			h1
+				color: $section-heading-color
+				background: $white
+				display: inline
+				font-size: $section-heading-size
+				font-weight: 600
+				letter-spacing: 1px
+				padding-right: 21px
+				padding-bottom: 3px
+				padding-top: 2px
+		#external-links-items
+			display: flex
+			justify-content: space-between
+			@media (max-width: 450px)
+				flex-flow: column nowrap
+				align-items: center
+			.external-links-img
+				&:nth-child(4)
+					@media (max-width: 1020px)
+						display: none
+				@media (max-width: 750px)
+					width: 47%
+					margin-bottom: 20px
+					&:nth-child(4)
+						display: block
+				@media (max-width: 450px)
+					width: auto
+				img
+					width: 100%
+				&>div
+					border: 1px solid $gainsboro
+
+					border-top: none
+		h2 
+			padding: 12px 13px 0
+			margin: 0
+			font-size: $article-heading-size
+			color: $article-heading-color
+			letter-spacing: 0.68px
+			a 
+				color: $article-heading-color
+				&:hover
+					text-decoration: none
+		span 
+			color: $burnt-sienna
+			padding: 0 13px
+			font-size: 13px
+			letter-spacing: 0.3px
+			font-weight: 600
+			display: inline-block
+			margin-bottom: 9px
+footer
+	background: $footer-bg
+	color: $footer-content-color
+	@media (max-width: 550px)
+		background: transparent
+	.container
+		background: $white
+		@media (max-width: 550px)
+			padding: 0
+
+		.row
+			background: $footer-content-bg
+			padding: 18px 35px
+			margin-left: 0
+			margin-right: 0
+	section
+		&:nth-child(2)
+			@media (max-width: 750px)
+				margin: 50px 0
+	h3
+		text-transform: uppercase
+		font-size: $footer-content-heading-size
+		letter-spacing: 1px
+		margin-bottom: 18px 
+	p 
+		line-height: 18px
+		font-size: $footer-content-text-size
+		line-height: 15px
+		margin-bottom: 14px
+	a 
+		color: $footer-content-link-color
+		&:hover 
+			color: $footer-content-link-hover-color
+			cursor: pointer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
